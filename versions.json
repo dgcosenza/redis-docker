@@ -1,13 +1,33 @@
 {
   "image": "dgcosenza/redis",
+  "upstream_name": "redis/redis",
+  "upstream_license": "AGPL-3.0-only",
+  "packaging_license": "MIT",
   "upstream_version": "8.12.0",
-  "debian_version": "13.8",
-  "components": {
-    "redis": "8.12.0"
+  "changelog_version": "8.12.0",
+  "architectures": [
+    "linux/amd64",
+    "linux/arm64"
+  ],
+  "sizes_mb": {
+    "amd64": "35.5",
+    "arm64": "110.8"
   },
-  "last_build_date": "2026-11-25",
-  "last_digest": "dgcosenza/redis@sha256:6c95db306f62fb1b7bedab1bf1ddbb0ec3bb0e7caf8ce84b6f8817142299c7eb",
-  "unfixed_high_critical": [
+  "signed": true,
+  "slsa_provenance": true,
+  "components": {
+    "Redis": "8.12.0",
+    "Base OS": "Debian 13.8 (trixie-slim)"
+  },
+  "base_image": "debian:trixie-slim",
+  "base_digest": "sha256:8aa5a7bf5a1955bddbe7d74fcdd0b91ab30e74362a8b73af672b0481b35b44a0",
+  "debian_version": "13.8",
+  "build_date": "2026-11-25",
+  "built_at_utc": "2026-11-25T08:20:53Z",
+  "image_digest": "dgcosenza/redis@sha256:afcaa46406ab2d86252c9f0bbb44cfa5695a506e89fd17522415cbc4fad6752e",
+  "ghcr_digest": "ghcr.io/dgcosenza/redis@sha256:afcaa46406ab2d86252c9f0bbb44cfa5695a506e89fd17522415cbc4fad6752e",
+  "fixable_critical_high": 0,
+  "unfixed_cves": [
     "CVE-2025-69720",
     "CVE-2026-107494",
     "CVE-2026-119373",

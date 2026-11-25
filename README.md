@@ -38,9 +38,14 @@ A source-built, multi-arch, rootless **Debian 13 (`trixie-slim`)** container ima
 | Redis | `8.12.0` |
 | Base OS | `Debian 13.8 (trixie-slim)` |
 | Architectures | `linux/amd64, linux/arm64` |
+| Uncompressed size (per arch) | `amd64: 35.5 MB, arm64: 110.8 MB` |
 | Last verified build (UTC) | `2026-11-25` |
+| Published multi-arch digest | `dgcosenza/redis@sha256:afcaa46406ab2d86252c9f0bbb44cfa5695a506e89fd17522415cbc4fad6752e` |
+| GHCR mirror | `ghcr.io/dgcosenza/redis@sha256:afcaa46406ab2d86252c9f0bbb44cfa5695a506e89fd17522415cbc4fad6752e` |
 | Supply chain | Cosign OIDC signed + SPDX & CycloneDX SBOM attestations + SLSA Build L3 provenance |
-| Security gate (Trivy + Grype on SBOM) | **0 fixable Critical/High** |
+| Security gate (Trivy + Grype on SBOM) | **0 fixable Critical/High** (13 upstream-unfixed) |
+
+Currently tracked upstream-unfixed findings (no fix released): `CVE-2025-69720`, `CVE-2026-107494`, `CVE-2026-119373`, `CVE-2026-119374`, `CVE-2026-119379`, `CVE-2026-124709`, `CVE-2026-16742`, `CVE-2026-54369`, `CVE-2026-76642`, `CVE-2026-78408` (+3 more in CI artifacts).
 <!-- versions:end -->
 
 ---
