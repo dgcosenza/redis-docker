@@ -6,7 +6,7 @@
     "redis": "8.12.0"
   },
   "last_build_date": "2026-11-25",
-  "last_digest": "",
+  "last_digest": "dgcosenza/redis@sha256:6c95db306f62fb1b7bedab1bf1ddbb0ec3bb0e7caf8ce84b6f8817142299c7eb",
   "unfixed_high_critical": [
     "CVE-2025-69720",
     "CVE-2026-107494",

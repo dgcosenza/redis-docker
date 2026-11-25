@@ -12,7 +12,7 @@ the upstream stable Redis 8.x release version.
 
 - Rebuilt on Debian `13.8` (`debian:trixie-slim`) with redis `8.12.0`.
 - Verified `0` fixable CRITICAL/HIGH vulnerabilities in Trivy and Grype.
-
+- Published digest: `dgcosenza/redis@sha256:6c95db306f62fb1b7bedab1bf1ddbb0ec3bb0e7caf8ce84b6f8817142299c7eb`.
 ## [8.12.0] - 2026-11-24
 
 ### Added

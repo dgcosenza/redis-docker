@@ -26,6 +26,7 @@ as PID 1.
 | `redis` | `8.12.0` |
 | Last verified build | `2026-11-25` |
 | Fixable CRITICAL / HIGH CVEs | `0` (Trivy + Grype gate) |
+| Published digest | `dgcosenza/redis@sha256:6c95db306f62fb1b7bedab1bf1ddbb0ec3bb0e7caf8ce84b6f8817142299c7eb` |
 
 Currently tracked unfixed upstream findings (no fix released): `CVE-2025-69720`, `CVE-2026-107494`, `CVE-2026-119373`, `CVE-2026-119374`, `CVE-2026-119379`, `CVE-2026-124709`, `CVE-2026-16742`, `CVE-2026-54369`, `CVE-2026-76642`, `CVE-2026-78408`.
 
