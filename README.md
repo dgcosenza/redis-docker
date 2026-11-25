@@ -38,10 +38,10 @@ A source-built, multi-arch, rootless **Debian 13 (`trixie-slim`)** container ima
 | Redis | `8.12.0` |
 | Base OS | `Debian 13.8 (trixie-slim)` |
 | Architectures | `linux/amd64, linux/arm64` |
-| Uncompressed size (per arch) | `amd64: 35.5 MB, arm64: 110.8 MB` |
+| Compressed size (per arch) | `amd64: 35.5 MB, arm64: 35.9 MB` |
 | Last verified build (UTC) | `2026-11-25` |
-| Published multi-arch digest | `dgcosenza/redis@sha256:afcaa46406ab2d86252c9f0bbb44cfa5695a506e89fd17522415cbc4fad6752e` |
-| GHCR mirror | `ghcr.io/dgcosenza/redis@sha256:afcaa46406ab2d86252c9f0bbb44cfa5695a506e89fd17522415cbc4fad6752e` |
+| Published multi-arch digest | `dgcosenza/redis@sha256:5d73ff1e7e9b9f9d725afd4ca32bb625ba3030532d0af79f8b49a7c1b99f131a` |
+| GHCR mirror | `ghcr.io/dgcosenza/redis@sha256:5d73ff1e7e9b9f9d725afd4ca32bb625ba3030532d0af79f8b49a7c1b99f131a` |
 | Supply chain | Cosign OIDC signed + SPDX & CycloneDX SBOM attestations + SLSA Build L3 provenance |
 | Security gate (Trivy + Grype on SBOM) | **0 fixable Critical/High** (13 upstream-unfixed) |
 
