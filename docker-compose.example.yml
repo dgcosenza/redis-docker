@@ -1,16 +1,21 @@
-# Production-style compose example for dgcosenza/redis
+# Hardened rootless + read-only compose example for dgcosenza/redis
 #
 # Pin production deployments by @sha256 digest and supply REDIS_PASSWORD via a
-# .env file or Docker secret. Keep Redis on an internal network with no exposed
-# host ports.
+# .env file or Docker secret. Runs as non-root `redis` (999:999) with a
+# read-only root filesystem, all capabilities dropped, and an internal network.
 
 services:
   redis:
     image: dgcosenza/redis:latest
     container_name: redis
     restart: unless-stopped
+    read_only: true
+    cap_drop:
+      - ALL
     security_opt:
       - no-new-privileges:true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=16m
     environment:
       REDISCLI_AUTH: "${REDIS_PASSWORD:-change-me}"
     command: ["sh", "-c", "exec redis-server --requirepass \"$${REDISCLI_AUTH}\""]

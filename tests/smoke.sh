@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Smoke test for dgcosenza/redis.
 #
-# Verifies default unauthenticated run, live-parity authenticated run via
-# REDISCLI_AUTH, non-root execution (uid 999), read/write/persistence, healthcheck,
-# and negative checks (wrong password + stopped server).
+# Verifies rootless + read-only rootfs + cap_drop ALL execution (uid 999),
+# live-parity authenticated run via REDISCLI_AUTH, SET/GET/SAVE persistence,
+# healthcheck, and negative checks (wrong password + stopped server).
 #
 # Usage: tests/smoke.sh [image]
 #        IMAGE=dgcosenza/redis:latest tests/smoke.sh
@@ -18,9 +18,13 @@ cleanup() {
 }
 trap cleanup EXIT
 
-echo "== 1. Default run (non-root, healthcheck, SET/GET, SAVE)"
+echo "== 1. Hardened rootless + read-only default run (uid 999, cap_drop ALL)"
 docker run -d --name "$NAME_PLAIN" \
+  --read-only \
+  --cap-drop ALL \
   --security-opt no-new-privileges:true \
+  --tmpfs /data:uid=999,gid=999,mode=0750 \
+  --tmpfs /tmp:noexec,nosuid,size=16m \
   "$IMAGE"
 
 for _ in $(seq 1 30); do
@@ -37,9 +41,13 @@ test "$(docker exec "$NAME_PLAIN" redis-cli GET smoke:key)" = "ok"
 test "$(docker exec "$NAME_PLAIN" redis-cli SAVE)" = "OK"
 docker exec "$NAME_PLAIN" test -f /data/dump.rdb
 
-echo "== 2. Authenticated run (REDISCLI_AUTH + sh -c --requirepass parity)"
+echo "== 2. Hardened authenticated run (REDISCLI_AUTH + sh -c --requirepass parity)"
 docker run -d --name "$NAME_AUTH" \
+  --read-only \
+  --cap-drop ALL \
   --security-opt no-new-privileges:true \
+  --tmpfs /data:uid=999,gid=999,mode=0750 \
+  --tmpfs /tmp:noexec,nosuid,size=16m \
   -e REDISCLI_AUTH=ci-smoke-secret \
   "$IMAGE" \
   sh -c 'exec redis-server --requirepass "${REDISCLI_AUTH}"'
