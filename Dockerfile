@@ -68,8 +68,8 @@ RUN set -eux; \
     grep -F 'cd jemalloc && ./configure ' deps/Makefile; \
     sed -ri "s!cd jemalloc && ./configure !&${extraJemalloc} !" deps/Makefile; \
     grep -F "cd jemalloc && ./configure ${extraJemalloc} " deps/Makefile; \
-    BUILD_TLS=yes BUILD_COMPRESSION=yes make -j"$(nproc)" all; \
-    BUILD_TLS=yes BUILD_COMPRESSION=yes make install; \
+    BUILD_TLS=yes BUILD_COMPRESSION=yes make -C src -j"$(nproc)" all; \
+    BUILD_TLS=yes BUILD_COMPRESSION=yes make -C src install; \
     find /usr/local/bin -maxdepth 1 -type f -executable -exec strip '{}' +; \
     install -d /opt/notices; \
     for f in LICENSE.txt COPYING REDISCONTRIBUTIONS.txt; do \
