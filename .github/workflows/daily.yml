@@ -494,7 +494,7 @@ jobs:
 
           if [ "$HUB_ENABLED" = "true" ]; then
             crane copy "ghcr.io/${IMAGE_NAME}@${INDEX_DIGEST}" "index.docker.io/${IMAGE_NAME}:latest"
-            for tag in "${VER}" "${DATE_TAG}" "${SHA_TAG}" "$8"; do
+            for tag in "${VER}" "${DATE_TAG}" "${SHA_TAG}" "8"; do
               crane tag "index.docker.io/${IMAGE_NAME}@${INDEX_DIGEST}" "${tag}"
             done
             HUB_DIGEST="$(crane digest "index.docker.io/${IMAGE_NAME}:latest")"
