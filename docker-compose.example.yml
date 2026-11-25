@@ -1,0 +1,39 @@
+# Production-style compose example for dgcosenza/redis
+#
+# Pin production deployments by @sha256 digest and supply REDIS_PASSWORD via a
+# .env file or Docker secret. Keep Redis on an internal network with no exposed
+# host ports.
+
+services:
+  redis:
+    image: dgcosenza/redis:latest
+    container_name: redis
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      REDISCLI_AUTH: "${REDIS_PASSWORD:-change-me}"
+    command: ["sh", "-c", "exec redis-server --requirepass \"$${REDISCLI_AUTH}\""]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli --no-auth-warning ping | grep -qx PONG"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+      start_interval: 5s
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 256M
+    networks:
+      - app_internal
+
+volumes:
+  redis_data:
+
+networks:
+  app_internal:
+    internal: true

@@ -1,0 +1,11 @@
+{
+  "image": "dgcosenza/redis",
+  "upstream_version": "8.12.0",
+  "debian_version": "13",
+  "components": {
+    "redis": "8.12.0"
+  },
+  "last_build_date": "2026-11-24",
+  "last_digest": "",
+  "unfixed_high_critical": []
+}
