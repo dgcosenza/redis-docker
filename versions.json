@@ -1,11 +1,25 @@
 {
   "image": "dgcosenza/redis",
   "upstream_version": "8.12.0",
-  "debian_version": "13",
+  "debian_version": "13.8",
   "components": {
     "redis": "8.12.0"
   },
-  "last_build_date": "2026-11-24",
+  "last_build_date": "2026-11-25",
   "last_digest": "",
-  "unfixed_high_critical": []
+  "unfixed_high_critical": [
+    "CVE-2025-69720",
+    "CVE-2026-107494",
+    "CVE-2026-119373",
+    "CVE-2026-119374",
+    "CVE-2026-119379",
+    "CVE-2026-124709",
+    "CVE-2026-16742",
+    "CVE-2026-54369",
+    "CVE-2026-76642",
+    "CVE-2026-78408",
+    "CVE-2026-78409",
+    "CVE-2026-78410",
+    "CVE-2026-9538"
+  ]
 }
