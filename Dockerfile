@@ -107,6 +107,7 @@ ARG IMAGE_CREATED
 ARG IMAGE_REVISION
 ARG IMAGE_SOURCE
 
+# hadolint ignore=DL3067
 COPY --from=os-base / /
 COPY --from=builder /usr/local/bin/ /usr/local/bin/
 COPY --from=builder /opt/notices/ /usr/share/doc/redis-notices/
