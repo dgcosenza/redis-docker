@@ -40,8 +40,8 @@ A source-built, multi-arch, rootless **Debian 13 (`trixie-slim`)** container ima
 | Architectures | `linux/amd64, linux/arm64` |
 | Compressed size (per arch) | `amd64: 35.5 MB, arm64: 35.9 MB` |
 | Last verified build (UTC) | `2026-11-25` |
-| Published multi-arch digest | `dgcosenza/redis@sha256:110057bbad774f640ab0aa7d9a69575083efbb1efec6b86023f5378f847d3578` |
-| GHCR mirror | `ghcr.io/dgcosenza/redis@sha256:110057bbad774f640ab0aa7d9a69575083efbb1efec6b86023f5378f847d3578` |
+| Published multi-arch digest | `dgcosenza/redis@sha256:2828536d08ecbfecfc191dbc6c3671e357f9c24c8a7fdbee4d725d35744c173a` |
+| GHCR mirror | `ghcr.io/dgcosenza/redis@sha256:2828536d08ecbfecfc191dbc6c3671e357f9c24c8a7fdbee4d725d35744c173a` |
 | Supply chain | Cosign OIDC signed + SPDX & CycloneDX SBOM attestations + SLSA Build L3 provenance |
 | Security gate (Trivy + Grype on SBOM) | **0 fixable Critical/High** (13 upstream-unfixed) |
 
