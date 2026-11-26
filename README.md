@@ -26,7 +26,7 @@ A source-built, multi-arch, rootless **Debian 13 (`trixie-slim`)** container ima
 
 - **Drop-in replacement for official `redis:8`:** Preserves `docker-entrypoint.sh`, `/data` volume, `redis` (`999:999`), port `6379`, and `REDISCLI_AUTH` authentication — while running **non-root by default** under `tini`.
 - **Rootless & read-only rootfs ready:** Verified natively on both architectures under `--read-only --cap-drop ALL --security-opt no-new-privileges:true`.
-- **Hardened supply chain:** Hadolint + Gitleaks preflight, native multi-arch smoke tests, strict Dive efficiency gate (`>= 95%`, `<= 5%` wasted), Syft SPDX + CycloneDX SBOMs, Trivy + Grype (SBOM) zero-fixable High/Critical gates, Cosign keyless OIDC signatures & SBOM attestations, SLSA Build L3 provenance, dual-registry publishing, and signed GitHub Releases.
+- **Hardened supply chain:** Hadolint + Gitleaks preflight, native multi-arch smoke tests, strict Dive efficiency gate (`>= 95%`, `<= 5%` wasted), Syft SPDX + CycloneDX SBOMs, Trivy + Grype (SBOM) zero-fixable all-severity gates, Cosign keyless OIDC signatures & SBOM attestations, SLSA Build L3 provenance, dual-registry publishing, and signed GitHub Releases.
 
 ---
 
@@ -197,7 +197,7 @@ gh attestation verify oci://ghcr.io/dgcosenza/redis:latest --owner dgcosenza
 - **Preflight gates:** Every push and PR runs **Hadolint** (blocking on warning+), **Gitleaks** secret scanning across git history, and **public-content/attribution/license** checks.
 - **Verified upstream source:** Official Redis tarballs are verified against SHA-256 hashes from `redis/redis-hashes` before compiling.
 - **Rootless & minimal attack surface:** Defaults to `USER redis` (`999:999`), verified with `--read-only` and `--cap-drop ALL`, uses `util-linux` `setpriv` instead of Go-based `gosu`.
-- **Vulnerability & efficiency gates (all severities with a fix):** Each architecture generates **Syft** SPDX + CycloneDX SBOMs, passes a strict **Dive** efficiency gate (`>= 95%`, `<= 5%` wasted), and must pass **Trivy** (table, JSON, SARIF to Code Scanning, blocking `--ignore-unfixed`) and **Grype** scanning the SPDX SBOM (`--only-fixed --fail-on negligible`) with **0 fixable findings of any severity** vulnerabilities.
+- **Vulnerability & efficiency gates (all severities with a fix):** Each architecture generates **Syft** SPDX + CycloneDX SBOMs, passes a strict **Dive** efficiency gate (`>= 95%`, `<= 5%` wasted), and must pass **Trivy** (table, JSON, SARIF to Code Scanning, blocking `--ignore-unfixed`) and **Grype** scanning the SPDX SBOM (`--only-fixed --fail-on negligible`) with **0 fixable vulnerabilities of any severity**.
 - **Dependency automation:** Renovate (`renovate.json`) pins base image digests and GitHub Action commit SHAs; Dependabot security alerts and OpenSSF Scorecard monitoring are enabled.
 - See [`SECURITY.md`](https://github.com/dgcosenza/redis-docker/blob/main/SECURITY.md) for vulnerability reporting.
 
