@@ -13,7 +13,7 @@ the upstream stable Redis 8.x release version.
 - Architectures verified: `linux/amd64, linux/arm64` (native smoke tests + Dive efficiency gate).
 - Upstream status: refreshed base OS, dependencies, and supply-chain attestations.
 - Vulnerability gate: **0 fixable findings of any severity** in Trivy and Grype (SBOM scan) (13 upstream-unfixed).
-- Published multi-arch digest (Docker Hub + GHCR): `dgcosenza/redis@sha256:26ecf4d758ecb0bdf4d160b7e1d690c3c9189a592ea8d23a9dc2cbb522fdf8d5` (Cosign OIDC signed + SPDX/CycloneDX SBOM + SLSA L3 provenance).
+- Published multi-arch digest (Docker Hub + GHCR): `dgcosenza/redis@sha256:981ce7934b9d6675d381c9689a3f8cd59090309609392b1ffb413051e3ffa231` (Cosign OIDC signed + SPDX/CycloneDX SBOM + SLSA L3 provenance).
 ## [8.12.0] - 2026-11-25
 
 ### Automated Daily Build
